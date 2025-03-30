@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sell Your Product - Dextro</title>
+  <link rel="stylesheet" href="sell.css">
+</head>
+<body>
+    <!-- Navbar (reuse existing navbar code) -->
+    <nav class="navbar">
+      <!-- Your navbar content -->
+    </nav>
+  
+    <div class="sell-container">
+      <h1>Sell Your Product</h1>
+      <form id="sellForm" enctype="multipart/form-data">
+        <!-- Product Name -->
+        <label for="productName">Product Name:</label>
+        <input type="text" id="productName" name="productName" required>
+  
+        <!-- Product Picture -->
+        <label for="productPicture">Product Picture:</label>
+        <input type="file" id="productPicture" name="productPicture" accept="image/*" required>
+  
+        <!-- Description -->
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required></textarea>
+  
+        <!-- Mobile Number -->
+        <label for="mobile">Mobile Number:</label>
+        <input type="tel" id="mobile" name="mobile" required>
+  
+        <!-- Price -->
+        <label for="price">Price:</label>
+        <input type="number" id="price" name="price" required>
+  
+        <!-- Category -->
+        <label for="category">Category:</label>
+        <select id="category" name="category" required>
+          <option value="cycles">Cycles</option>
+          <option value="accessories">Accessories</option>
+          <option value="study materials">Study Materials</option>
+          <option value="mattresses">Mattresses</option>
+        </select>
+  
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+
+    <script>
+        document.getElementById('sellForm').addEventListener('submit', async function(e) {
+          e.preventDefault();
+      
+          // Create a FormData object to send both text fields and file
+          const formData = new FormData(this);
+      
+          try {
+            const response = await fetch('http://localhost:3000/api/products', {
+              method: 'POST',
+              body: formData
+            });
+            
+            const result = await response.json();
+            console.log('Response:', response);
+            console.log('Result:', result);
+            
+            if (response.ok) {
+              alert('Product submitted successfully!');
+              // Redirect back to index.html
+              window.location.href = "index.html";
+            } else {
+              alert('Error submitting product: ' + (result.error || 'Unknown error'));
+            }
+          } catch (error) {
+            console.error('Error submitting product:', error);
+            alert('Error submitting product. Please try again.');
+          }
+        });
+      </script>
+      
+</body>
+</html>

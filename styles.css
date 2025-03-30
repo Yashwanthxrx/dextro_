@@ -1,0 +1,253 @@
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fef2e3;
+    margin: 0;
+}
+
+/* Navbar */
+.navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #faebd7;
+    padding: 15px 30px;
+    border-bottom: 2px solid #d3c0a8;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+/* Logo */
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #9b8575;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 8px;
+    padding-left: 20px;
+}
+
+.logo img {
+    height: 70px;
+    width: auto;
+}
+
+.dot {
+    color: #9462d1;
+    font-size: 20px;
+}
+
+/* Search Bar */
+.search-container {
+    display: flex;
+    align-items: center;
+    background: #fdf8f1;
+    padding: 8px 15px;
+    border-radius: 30px;
+    box-shadow: inset 0px 2px 5px rgba(0, 0, 0, 0.1);
+    justify-content: center;
+    position: absolute;
+    left: 49%;
+    transform: translateX(-50%);
+    width: 40%;
+    max-width: 450px;
+}
+
+.location-dropdown {
+    border: none;
+    background: transparent;
+    font-size: 14px;
+    margin-right: 10px;
+    outline: none;
+}
+
+.search-input {
+    border: none;
+    outline: none;
+    padding: 10px;
+    width: 100%;
+    background: transparent;
+    font-size: 16px;
+}
+
+.search-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: #444;
+}
+
+/* Nav Buttons */
+.nav-buttons {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.sell-btn {
+    background: white;
+    border: 2px solid black;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-right: 10px;
+    position: relative;
+    right: 240px;
+}
+
+.sell-btn:hover {
+    top: -0.16em;
+    transition: padding .5s, top .35s, box-shadow .4s;
+    box-shadow: 0 0.4rem 0 -0.2rem #9462d1;
+}
+
+.login {
+    text-decoration: none;
+    font-weight: bold;
+    color: #9462d1;
+    font-size: 14px;
+    position: relative;
+    right: 150px;
+}
+
+/* Main container with rounded rectangle */
+.main-container {
+    border-radius: 70px;
+    padding: 40px;
+    width: 80%;
+    max-width: 1000px;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin: 40px auto;
+    position: relative;
+    top: 100px;
+    border: 3px solid #c2bcaf;
+}
+
+/* Category card styling */
+.category-card {
+    width: 200px;
+    height: 270px;
+    background: #d6bde3;
+    border-radius: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    text-align: center;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+}
+
+.category-card img {
+    width: 100px;
+    height: 150px;
+    margin-bottom: 10px;
+}
+
+.category-card p {
+    font-weight: bold;
+    font-size: 18px;
+    color: black;
+    margin: 0;
+}
+
+/* Mobile Responsiveness */
+@media only screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 15px 10px;
+        height: auto;
+        position: relative;
+    }
+
+    .logo {
+        padding-left: 0;
+        margin-bottom: 10px;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .search-container {
+        position: relative;
+        left: auto;
+        transform: none;
+        width: 90%;
+        margin: 10px 0;
+    }
+
+    .nav-buttons {
+        position: relative;
+        right: auto;
+        top: auto;
+        transform: none;
+        justify-content: center;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .sell-btn, .login {
+        position: static;
+        margin: 5px;
+    }
+
+    .main-container {
+        width: 90%;
+        padding: 20px;
+        border-radius: 40px;
+        top: 20px;
+    }
+
+    .category-card {
+        width: 150px;
+        height: 200px;
+        border-radius: 40px;
+    }
+
+    .category-card img {
+        width: 80px;
+        height: 120px;
+    }
+
+    .category-card p {
+        font-size: 16px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .category-card {
+        width: 120px;
+        height: 180px;
+    }
+
+    .category-card img {
+        width: 60px;
+        height: 90px;
+    }
+
+    .category-card p {
+        font-size: 14px;
+    }
+}

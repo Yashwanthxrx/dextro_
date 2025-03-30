@@ -1,0 +1,153 @@
+/* General Body Styles */
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fef2e3;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Navbar – Reuse existing styles */
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #faebd7;
+  padding: 15px 30px;
+  border-bottom: 2px solid #d3c0a8;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #9b8575;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 8px;
+  padding-left: 20px;
+}
+
+.logo img {
+  height: 70px;
+  width: auto;
+}
+
+.nav-buttons {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.sell-btn, .login {
+  font-weight: bold;
+  padding: 8px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  text-decoration: none;
+  margin-left: 10px;
+}
+
+.sell-btn {
+  background: white;
+  border: 2px solid black;
+  color: black;
+  transition: all 0.3s ease;
+}
+
+.sell-btn:hover {
+  top: -2px;
+  box-shadow: 0 0.4rem 0 -0.2rem #9462d1;
+}
+
+.login {
+  background: transparent;
+  color: #9462d1;
+  border: none;
+}
+
+/* Sell Form Container */
+.sell-container {
+  margin-top: 120px; /* Adjusted to account for fixed navbar */
+  width: 90%;
+  max-width: 600px;
+  background-color: #fff8f1;
+  border: 2px solid #c2bcaf;
+  border-radius: 20px;
+  padding: 30px 40px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Title */
+.sell-container h1 {
+  text-align: center;
+  color: #9b8575;
+  margin-bottom: 20px;
+}
+
+/* Form Styles */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+form input[type="text"],
+form input[type="tel"],
+form input[type="number"],
+form input[type="file"],
+form textarea,
+form select {
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 2px solid #c2bcaf;
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+form input[type="text"]:focus,
+form input[type="tel"]:focus,
+form input[type="number"]:focus,
+form textarea:focus,
+form select:focus {
+  border-color: #9462d1;
+}
+
+form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Submit Button */
+form button[type="submit"] {
+  background-color: #9462d1;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button[type="submit"]:hover {
+  background-color: #834ab3;
+}

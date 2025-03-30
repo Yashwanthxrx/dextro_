@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Dextro</title>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">
+      <img src="logo.png" alt="Dextro">
+    </div>
+
+    <div class="search-container">
+      <select class="location-dropdown" id="locationDropdown">
+        <option value="NIT Trichy">NIT Trichy</option>
+        <option value="Other Locations">Other Locations</option>
+      </select>
+      <input type="text" placeholder="Search..." class="search-input" id="searchInput">
+      <button class="search-btn" id="searchBtn"><i class="fas fa-search"></i></button>
+    </div>
+
+    <div class="nav-buttons">
+      <a href="sell.html" class="sell-btn">+ SELL</a>
+      <!-- Login link will be updated based on authentication status -->
+      <a href="#" id="loginLink" class="login">Login/Signup</a>
+    </div>
+  </nav>
+
+  <h1>Welcome to Dextro</h1>
+
+  <!-- Main Category Container -->
+  <div class="main-container">
+    <a href="cycles.html?category=cycles" class="category-card">
+      <img src="Cycle.png" alt="Cycles">
+    </a>
+    <a href="matresses.html?category=mattresses" class="category-card">
+      <img src="Mattress.png" alt="Mattress">
+    </a>
+    <a href="studym.html?category=study materials" class="category-card">
+      <img src="Study Material.png" alt="Study Material">
+    </a>
+    <a href="accessories.html?category=accessories" class="category-card">
+      <img src="Accessories.png" alt="Accessories">
+    </a>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // --- Authentication Check ---
+      fetch('http://localhost:3000/auth/user', { credentials: 'include' })
+        .then(response => response.json())
+        .then(data => {
+          const loginLink = document.getElementById('loginLink');
+          if (data.user) {
+            loginLink.textContent = 'Welcome, ' + data.user.firstName;
+            loginLink.href = 'http://localhost:3000/auth/logout';
+          } else {
+            loginLink.href = 'http://localhost:3000/auth/google';
+          }
+        })
+        .catch(err => console.error('Error fetching auth user:', err));
+
+      // --- Search Functionality ---
+      const searchBtn = document.getElementById('searchBtn');
+      const searchInput = document.getElementById('searchInput');
+      const locationDropdown = document.getElementById('locationDropdown');
+
+      function redirectToSearch() {
+        const query = encodeURIComponent(searchInput.value.trim());
+        const location = encodeURIComponent(locationDropdown.value);
+        // Redirect to search.html with query parameters
+        window.location.href = `search.html?search=${query}&location=${location}`;
+      }
+
+      searchBtn.addEventListener('click', redirectToSearch);
+      searchInput.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+          event.preventDefault();
+          redirectToSearch();
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
