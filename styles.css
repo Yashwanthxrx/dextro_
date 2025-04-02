@@ -1,3 +1,10 @@
+
+
+@font-face {
+    font-family: Fredie ;
+    src: url(Fredoka-VariableFont_wdth\,wght.ttf);
+}
+
 body {
     height: 100vh;
     display: flex;
@@ -32,13 +39,16 @@ body {
     align-items: center;
     justify-content: start;
     gap: 8px;
-    padding-left: 20px;
+    padding-left: 0px;
 }
 
 .logo img {
-    height: 70px;
+    height: 85px; /* Increased from 70px */
     width: auto;
+    position: relative;
+    /* Ensures it scales well */
 }
+
 
 .dot {
     color: #9462d1;
@@ -99,14 +109,23 @@ body {
 .sell-btn {
     background: white;
     border: 2px solid black;
-    padding: 8px 20px;
+    color: #9462d1;
+    padding: 10px 25px; /* Increased padding for better spacing */
     border-radius: 20px;
-    font-weight: bold;
+    width: auto; /* Auto width to fit content */
     cursor: pointer;
     margin-right: 10px;
     position: relative;
-    right: 240px;
+    right: 320px;
+    font-family: fredie;
+    text-decoration: none;
+    font-size: 25px;
+    text-align: center;
+    display: flex; /* Flexbox for centering */
+    align-items: center; /* Vertically center text */
+    justify-content: center; /* Horizontally center text */
 }
+
 
 .sell-btn:hover {
     top: -0.16em;
@@ -115,12 +134,15 @@ body {
 }
 
 .login {
-    text-decoration: none;
-    font-weight: bold;
     color: #9462d1;
     font-size: 14px;
-    position: relative;
+    position: absolute;
     right: 150px;
+    font-family: fredie;
+    font-size: 20px;
+    right: 100px;
+    text-decoration: none;
+
 }
 
 /* Main container with rounded rectangle */

@@ -71,24 +71,7 @@ body {
     color: #333;
 }
 
-/* Sort & Filter */
-.filter-container {
-    display: flex;
-    justify-content: flex-end;
-    padding: 10px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
 
-.sort-btn {
-    border: 1px solid black;
-    padding: 5px 15px;
-    border-radius: 10px;
-    background-color: white;
-    cursor: pointer;
-    font-family: "Poetsen One", sans-serif;
-    transition: background-color 0.3s;
-}
 
 .sort-btn:hover {
     background-color: #f0f0f0;

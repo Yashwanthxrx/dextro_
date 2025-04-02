@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dextro</title>
+    <link rel="stylesheet" href="frontstyle.css">
+</head>
+<body>
+    <div class="container">
+        <div class="split top"></div>
+        <div class="split bottom"></div>
+        <div class="content">
+            <a href="index.html" class="explore-btn" onclick="splitAndRedirect(event)">Explore</a>
+        </div>
+    </div>
+
+    <script>
+        function splitAndRedirect(event) {
+            event.preventDefault(); // Prevent instant navigation
+            document.body.classList.add("split-active"); // Start split animation
+
+            setTimeout(() => {
+                window.location.href = "index.html"; // Redirect after animation
+            }, 600); // Waits for animation to complete
+        }
+    </script>
+</body>
+</html>
